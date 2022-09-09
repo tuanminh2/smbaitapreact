@@ -1,0 +1,48 @@
+.dtpmain {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: azure;
+  border: 2px solid lightblue;
+  box-shadow: 24px;
+  padding: 4px;
+
+  width: 60%;
+
+  .dtp-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .date-content {
+      padding: 16px 0px;
+
+      .datepker {
+        display: block !important;
+        margin: 16px 0px;
+      }
+    }
+    .time-content {
+      padding: 16px 0px;
+
+      .timepker {
+        display: block !important;
+        margin: 16px 0px;
+      }
+    }
+  }
+
+  .dtpkerbtn {
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    border-radius: 16px;
+    font-weight: 600;
+  }
+}
