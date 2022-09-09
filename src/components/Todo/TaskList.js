@@ -6,28 +6,27 @@ import TaskInp from './TaskInp';
 import DateTimePickerModal from './DateTimePickerModal';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { add } from '../../actions/taskAction';
+import { addTask } from '../../actions/taskAction';
 
 function ListTask() {
-  // const taskRedux = useSelector((state) => state.taskRedux);
-  // const dispatch = useDispatch();
+  const taskRedux = useSelector((state) => state.taskReducer.taskRedux);
+  const dispatch = useDispatch();
 
-  const [taskList, setTaskList] = useState([]);
+  // const [taskList, setTaskList] = useState([]);
 
-  const hdlAddTask = (newTask) => {
-    let taskListCp = [...taskList];
+  const hdlAddTask = (newTask) => dispatch(addTask(newTask));
+  // let taskListCp = [...taskList];
 
-    taskListCp.push(newTask);
+  // taskListCp.push(newTask);
 
-    setTaskList(taskListCp);
-    console.log(taskList);
-  };
+  // setTaskList(taskListCp);
+  // console.log(taskList);
 
-  const hdlDeleteTask = (delTaskName) => {
-    let taskListCp = [...taskList];
-    taskListCp = taskListCp.filter((item) => item.taskName !== delTaskName);
-    setTaskList(taskListCp);
-  };
+  // const hdlDeleteTask = (delTaskName) => {
+  //   let taskListCp = [...taskList];
+  //   taskListCp = taskListCp.filter((item) => item.taskName !== delTaskName);
+  //   setTaskList(taskListCp);
+  // };
 
   return (
     <>
@@ -37,9 +36,9 @@ function ListTask() {
         <div className="task-main">
           <TaskInp hdlAddTask={hdlAddTask} />
           <div className="task-container">
-            {taskList &&
-              taskList.length > 0 &&
-              taskList.map((v, i) => {
+            {taskRedux &&
+              taskRedux.length > 0 &&
+              taskRedux.map((v, i) => {
                 return (
                   <div
                     className="taskdiv"
@@ -48,9 +47,7 @@ function ListTask() {
                     <div className="tasktext">{v.taskName}</div>
 
                     <div>
-                      <button onClick={() => hdlDeleteTask(v.taskName)}>
-                        Delete
-                      </button>
+                      <button>Delete</button>
                     </div>
                   </div>
                 );

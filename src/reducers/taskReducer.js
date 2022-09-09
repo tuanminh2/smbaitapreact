@@ -1,12 +1,14 @@
 import actionTypes from '../actions/actionTypes';
 
-const initialState = {
-  taskRedux: [],
+let initialState = {
+  taskRedux: ['askfnksdf', 'askjfnsdf'],
 };
 
 export const taskReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.FETCH_GENDER_START:
+    case actionTypes.ADD_TASK_START:
+      console.log('INREDUCER .....', action.data);
+
       return {
         ...state,
         taskRedux: [...state.taskRedux, action.data],

@@ -17,6 +17,7 @@ function TaskInp(props) {
     };
     let { hdlAddTask } = props;
     setInpTaskName('');
+    console.log('newTask frmo taskinpb ', newTask);
     hdlAddTask(newTask);
   };
 
