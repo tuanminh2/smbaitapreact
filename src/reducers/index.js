@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { connectRouter } from "connected-react-router";
+
 
 
 import taskReducer from './taskReducer';
@@ -23,7 +23,7 @@ const taskPersistConfig = {
 };
 
 const allReducers = combineReducers({
-  router: connectRouter(history),
+
   taskReducer: persistReducer(taskPersistConfig, taskReducer),
   // add more reducers here
 });
