@@ -12,6 +12,8 @@ import Register from './components/Auth/Register';
 
 import { ToastContainer, toast } from 'react-toastify';
 import TaskList from './components/Todo/TaskList';
+import CustomCalendar from './components/Todo/CustomCalendar';
+
 
 
 
@@ -29,6 +31,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/task" element={<TaskList />} />
+          <Route path="/calendar" element={<CustomCalendar />} />
           <Route path="/student" element={<StudentList />} />
           <Route path="/" element={<StudentList />} />
           <Route path="/student/add" element={<AddStudent />} />

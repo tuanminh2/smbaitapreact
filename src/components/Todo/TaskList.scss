@@ -9,7 +9,6 @@
     // width: 260px;
 
     .task-form {
-
       position: relative;
 
       display: flex;
@@ -19,10 +18,8 @@
       width: 360px;
       margin: 0 auto;
       border: 1px solid black;
-      input{
+      input {
         width: 80%;
-       
-        
       }
       button {
         padding: 3px 3px;
@@ -33,5 +30,27 @@
       }
     }
     border: 1px solid green;
+  }
+
+  .task-container {
+    width: 50%;
+    margin: 0 auto;
+    
+    .taskdiv {
+      padding: 10px 20px;
+      margin: 10px 0;
+      border: 1px solid #d3d3d3;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      button {
+        margin-right: 100px;
+        background-color:azure;
+        color: red;
+        border-radius: 12px;
+        padding: 2px;
+        border: 1px solid black;
+      }
+    }
   }
 }

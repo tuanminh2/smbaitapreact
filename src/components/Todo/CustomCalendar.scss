@@ -1,0 +1,17 @@
+.custom-calendar {
+  height: 100vh;
+  width: 80%;
+  overflow-y: auto;
+  margin: 100px auto;
+
+  .react-calendar {
+    margin: 0 auto;
+    width: 850px;
+
+    .react-calendar__viewContainer {
+      button {
+        padding: 30px 30px;
+      }
+    }
+  }
+}

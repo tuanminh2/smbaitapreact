@@ -2,19 +2,28 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import DateTimePickerModal from './DateTimePickerModal';
 
-
 function TaskInp(props) {
   const [inpTaskName, setInpTaskName] = useState('');
-
+  const [dtData, setDtData] = useState({});
   const hdlInpTaskNameChange = (event) => {
     event.preventDefault();
     setInpTaskName(event.target.value);
   };
 
-  const hdlAddTask = () => {
+  const hdlAddTaskBtn = () => {
+    const newTask = {
+      ...dtData,
+      taskName: inpTaskName,
+    };
     let { hdlAddTask } = props;
-    hdlAddTask('adsbfafsda');
+    setInpTaskName('');
+    hdlAddTask(newTask);
   };
+
+  const hdlAddDT = (dt) => {
+    setDtData(dt);
+  };
+
   return (
     <>
       <div className="task-inp ">
@@ -26,12 +35,12 @@ function TaskInp(props) {
             onChange={(event) => hdlInpTaskNameChange(event)}
             value={inpTaskName}
           />
-          <span><DateTimePickerModal></DateTimePickerModal></span>
-          <button onClick={hdlAddTask}>Add</button>
+          <span>
+            <DateTimePickerModal hdlAddDT={hdlAddDT}></DateTimePickerModal>
+          </span>
+          <button onClick={hdlAddTaskBtn}>Add</button>
         </div>
       </div>
-
-   
     </>
   );
 }

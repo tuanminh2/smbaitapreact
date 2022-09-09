@@ -15,14 +15,13 @@ import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
-function DateTimePickerModal() {
-  const [date1, setDate1] = React.useState(new Date());
-  const [date2, setDate2] = React.useState(new Date());
-  const [time1, setTime1] = React.useState(new Date());
-  const [time2, setTime2] = React.useState(new Date());
+function DateTimePickerModal(props) {
+  const [date1, setDate1] = React.useState(dayjs());
+  const [date2, setDate2] = React.useState(dayjs());
+  const [time1, setTime1] = React.useState(dayjs());
+  const [time2, setTime2] = React.useState(dayjs());
 
   const handleChangeDate1 = (newValue) => {
-
     setDate1(newValue);
   };
   const handleChangeDate2 = (newValue) => {
@@ -34,12 +33,25 @@ function DateTimePickerModal() {
   const handleChangeTime2 = (newValue) => {
     setTime2(newValue);
   };
+
+  const handleSubmit = () => {
+    let dt = {
+      sdate: date1.get('date'),
+      fdate: date2.get('date'),
+      stime: time1.get('hour'),
+      ftime: time2.get('hour'),
+    };
+    let { hdlAddDT } = props;
+
+    hdlAddDT(dt);
+    setOpen(false);
+  };
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
     <>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button id="pickDatetimeBtn" onClick={handleOpen}>datetime</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -88,7 +100,7 @@ function DateTimePickerModal() {
             </div>
           </LocalizationProvider>
 
-          <button className="dtpkerbtn" onClick={handleClose}>
+          <button className="dtpkerbtn" onClick={handleSubmit}>
             Submit
           </button>
         </div>
